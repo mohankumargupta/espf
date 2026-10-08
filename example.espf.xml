@@ -1,7 +1,7 @@
---- ====================
+--- ==============================================================
 --- ESPF file format
 --- mandatory sections: espforge, peripherals, components, devices
---- ====================
+--- ==============================================================
 
 # espforge
   <project name="example project" description="example showing espf file format" />
