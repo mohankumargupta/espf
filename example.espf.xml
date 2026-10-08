@@ -16,13 +16,13 @@
   <uart id="uart1" tx="20" rx="21" />
 
 # components
-  <gpio_component id="blue_led"    gpio="gpio4" direction="output" />
-  <i2c_component  id="temp_bus"    i2c="i2c0" address="0x48" />
-  <spi_component  id="display_bus" spi="spi2" mode="0" cs="gpio5" frequency="40MHz" />
-  <uart_component id="serial_bus"  uart="uart1" baud_rate="9600" parity="none" stop_bits="1" />
+  <gpio_component id="blue_led"    gpio="$gpio4" direction="output" />
+  <i2c_component  id="temp_bus"    i2c="$i2c0" address="0x48" />
+  <spi_component  id="display_bus" spi="$spi2" mode="0" cs="gpio5" frequency="40MHz" />
+  <uart_component id="serial_bus"  uart="$uart1" baud_rate="9600" parity="none" stop_bits="1" />
 
 # devices
-  <status_led     id="status"       gpio_component="blue_led" />
-  <tmp102         id="outdoor_temp" i2c_component="temp_bus" />
-  <ili9341        id="tft_display"  spi_component="display_bus" />
+  <status_led     id="status"       gpio_component="$blue_led" />
+  <tmp102         id="outdoor_temp" i2c_component="$temp_bus" />
+  <ili9341        id="tft_display"  spi_component="$display_bus" />
 
