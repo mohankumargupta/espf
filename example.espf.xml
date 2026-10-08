@@ -24,5 +24,6 @@
 # devices
   <status_led     id="status"       gpio_component="$blue_led" />
   <tmp102         id="outdoor_temp" i2c_component="$temp_bus" />
-  <ili9341        id="tft_display"  spi_component="$display_bus" />
+  <ili9341        id="tft_display"  
+                  spi_component="$display_bus" />
 
