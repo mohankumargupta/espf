@@ -1,7 +1,15 @@
---- ==============================================================
---- ESPF file format
---- mandatory sections: espforge, peripherals, components, devices
---- ==============================================================
+======================================================================================
+ESPF file format
+
+1. comment block preceded with line containing only one or more equal sign sigil and
+   closing line containing only one or more equal sign sigil.
+2. mandatory sections: espforge, peripherals, components, devices
+3. there is only one data type, that is string enclosed in double quotes.
+4. sections use the # sigil 
+5. a document contains sections, each section contains 0 or more elements
+6. an element is a restricted self closing xml element format.
+   - inline comments(//)at the end of self-closing elements only, not anywhere else
+======================================================================================
 
 # espforge
   <project name="example project" description="example showing espf file format" />
@@ -12,7 +20,7 @@
   <gpio id="gpio4" pin="4" />
   <gpio id="gpio5" pin="5" />
   <i2c  id="i2c0" sda="8" scl="9" frequency="400kHz" />
-  <spi  id="spi2" sclk="6" mosi="7" /> --- displays generally omit miso
+  <spi  id="spi2" sclk="6" mosi="7" /> // displays generally omit miso
   <uart id="uart1" tx="20" rx="21" />
 
 # components
