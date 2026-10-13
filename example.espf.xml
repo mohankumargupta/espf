@@ -3,6 +3,7 @@ ESPF file format
 
 1. comment block preceded with line containing only one or more equal sign sigil and
    closing line containing only one or more equal sign sigil.
+   comment blocks can only appear before sections, not inside sections
 2. mandatory sections: espforge, peripherals, components, devices
 3. there is only one data type, that is string enclosed in double quotes.
 4. sections use the # sigil 
@@ -11,6 +12,8 @@ ESPF file format
    - inline comments(//)at the end of self-closing elements only, not anywhere else
    - element can span multiple lines, \ continuation not supported
 7. double quoted strings cannot span multiple lines
+8. single quotes can only appear inside double quotes
+9. you can reference elements throughout the document.
 ======================================================================================
 
 # espforge
