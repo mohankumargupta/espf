@@ -9,6 +9,8 @@ ESPF file format
 5. a document contains sections, each section contains 0 or more elements
 6. an element is a restricted self closing xml element format.
    - inline comments(//)at the end of self-closing elements only, not anywhere else
+   - element can span multiple lines, \ continuation not supported
+7. double quoted strings cannot span multiple lines
 ======================================================================================
 
 # espforge
