@@ -1,0 +1,42 @@
+(* High-level Document Structure *)
+document         = [ comment_block ] , { section | comment_block } ;
+
+(* Comment Blocks (Can only appear at top or before a section) *)
+comment_block    = equal_sigil_line , newline , { comment_line } , equal_sigil_line , newline ;
+equal_sigil_line = "=" , { "=" } ;
+comment_line     = { all_characters - newline } , newline ;
+
+(* Sections *)
+section          = section_header , newline , { element } ;
+section_header   = "#" , [ whitespace ] , section_name ;
+section_name     = "espforge" | "peripherals" | "components" | "devices" ;
+
+(* Elements (XML-like restricted self-closing tags) *)
+element          = "<" , element_name , [ whitespace_or_newline ] , 
+                   { attribute , [ whitespace_or_newline ] } , 
+                   "/>" , [ [ whitespace ] , inline_comment ] , newline ;
+element_name     = identifier ;
+
+(* Attributes *)
+attribute        = attr_name , "=" , string ;
+attr_name        = identifier ;
+string           = '"' , { string_character } , '"' ;
+
+(* Inline Comments *)
+inline_comment   = "//" , { all_characters - newline } ;
+
+(* Identifiers and Variables *)
+identifier       = ( letter | "_" ) , { letter | digit | "_" } ;
+variable_ref     = "$" , identifier ;
+
+(* Allowed characters inside a double-quoted string *)
+(* Prevents double quotes and newlines, but permits single quotes explicitly *)
+string_character = ( all_characters - ( '"' | newline ) ) ;
+
+(* Low-level Terminals *)
+letter           = "a" | ... | "z" | "A" | ... | "Z" ;
+digit            = "0" | ... | "9" ;
+whitespace       = { " " | "\t" } ;
+whitespace_or_newline = { " " | "\t" | "\r" | "\n" } ;
+newline          = "\r\n" | "\n" ;
+all_characters   = ? all valid unicode or ascii characters ? ;
