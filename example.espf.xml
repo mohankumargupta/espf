@@ -14,6 +14,8 @@ ESPF file format
 7. double quoted strings cannot span multiple lines
 8. single quotes can only appear inside double quotes
 9. you can reference elements throughout the document.
+10. a nested attribute has the key dotted (eg. wifi below)
+11. an array value uses += after key, including first element of array (eg. ntp below)
 ======================================================================================
 
 # espforge
