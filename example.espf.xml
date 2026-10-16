@@ -4,7 +4,7 @@ ESPF file format
 1. comment block preceded with line containing only one or more equal sign sigil and
    closing line containing only one or more equal sign sigil.
    comment blocks can only appear before sections, not inside sections
-2. mandatory sections: espforge, peripherals, components, devices
+2. mandatory sections: espforge, peripherals, components, devices, services
 3. there is only one data type, that is string enclosed in double quotes.
 4. sections use the # sigil 
 5. a document contains sections, each section contains 0 or more elements
@@ -39,4 +39,14 @@ ESPF file format
   <tmp102         id="outdoor_temp" i2c_component="$temp_bus" />
   <ili9341        id="tft_display"  
                   spi_component="$display_bus" />
+
+# services
+  <wifi id="wifi"
+      network1.ssid="boo" network1.password="123" 
+      network2.ssid="moo" network2.password="" />
+  <ntp id="ntp"
+       timezone="Melbourne/Australia"
+       servers+="0.pool.ntp.org"
+       servers+="1.pool.ntp.org"
+       servers+="0.pool.ntp.org"/>
 
