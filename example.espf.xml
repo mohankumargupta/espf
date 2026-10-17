@@ -1,21 +1,31 @@
 ======================================================================================
 ESPF file format
 
-1. comment block preceded with line containing only one or more equal sign sigil and
-   closing line containing only one or more equal sign sigil.
-   comment blocks can only appear before sections, not inside sections
-2. mandatory sections: espforge, peripherals, components, devices, services
-3. there is only one data type, that is string enclosed in double quotes.
-4. sections use the # sigil 
-5. a document contains sections, each section contains 0 or more elements
-6. an element is a restricted self closing xml element format.
-   - inline comments(//)at the end of self-closing elements only, not anywhere else
-   - element can span multiple lines, \ continuation not supported
-7. double quoted strings cannot span multiple lines
-8. single quotes can only appear inside double quotes
-9. you can reference elements throughout the document.
-10. a nested attribute has the key dotted (eg. wifi below)
-11. an array value uses += after key, including first element of array (eg. ntp below)
+1. ESPF document
+   - contain sections, each section contains zero or more elements
+   - mandatory sections: espforge, peripherals, components, devices, services
+   - sections contain zero or more elements 
+2. sections must start with the # character, must be a single line
+3. element
+   - uses xml self-closing tag syntax
+   - consists of name and zero or more attributes
+   - multiline is supported, \ continuation not supported
+4. element attributes
+   - key value pair
+   - a nested attribute has the key dotted (eg. wifi below)
+   - values always strings enclosed in double quotes
+   - except an array value uses += after key, including first element of array (eg. ntp below)
+   - double quoted strings cannot span multiple lines
+   - single quotes can only appear inside double quotes
+5. block comments
+   - Must be enclosed between two lines containing only one or more '=' characters.
+   - Allowed only directly preceding a section 
+   inline comments
+   - at the end of element self-closing tag only
+   - starts with //
+6. you can reference elements by its id attribute 
+   throughout the document with the $ character 
+
 ======================================================================================
 
 # espforge
